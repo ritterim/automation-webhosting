@@ -164,44 +164,5 @@ namespace RimDev.Automation.WebHosting
                 Quit();
             }
         }
-
-        //public static Site AddSiteToApplicationHostConfig(string name, string path, IList<string> protocols, string applicationHostConfigPath = null)
-        //{
-        //    if (protocols == null || !protocols.Any())
-        //        throw new ArgumentException("at least one protocol is required", "protocols");
-
-        //    var manager = new ServerManager(GetApplicationHostConfigPath(applicationHostConfigPath));
-        //    var site = manager.CreateSite(name, path, 0);
-        //    //site.Applications.Clear();
-        //    //var application = site.Applications.Add("/", path);
-        //    //application.ApplicationPoolName = "Clr4IntegratedAppPool";
-        //    //site.Bindings.RemoveAt(0);
-
-        //    var ports = NetworkUtilities.GetAvailablePorts(protocols.Count).ToList();
-
-        //    for (var i = 0; i < protocols.Count; i++)
-        //    {
-        //        var protocol = protocols[i];
-        //        var port = protocol == "https" ? 44399 : ports[i];
-        //        // site.CreateBinding(string.Format("*:{0}:localhost", port), protocol);
-        //        site.CreateBinding(protocol, port);
-        //    }
-
-        //    manager.CommitChanges();
-
-        //    return site;
-        //}
-
-        //public static void RemoveSiteFromApplicationHostConfig(string name, string applicationHostConfigPath = null)
-        //{
-        //    var manager = new ServerManager(GetApplicationHostConfigPath(applicationHostConfigPath));
-        //    var site = manager.Sites().FirstOrDefault(x => name == x.Name);
-        //    if (site != null)
-        //    {
-        //        manager.RemoveSite(site.Id);
-        //    }
-
-        //    manager.CommitChanges();
-        //}
     }
 }
