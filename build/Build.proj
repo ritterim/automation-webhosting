@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Clean; Build; Test" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Package" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildThisFileDirectory)Build.Version.targets" Condition=" '$(PackageVersion)' == '' And '$(BUILD_NUMBER)' != '' " />
+
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
 
     <RootPath>$([System.IO.Path]::GetFullPath("$(MSBuildThisFileDirectory)\..\"))</RootPath>
-    <NuGetPath Condition=" '$(NuGetPath)' == '' ">$(RootPath).nuget\nuget.exe</NuGetPath>
+
+    <NuGetPath>$(RootPath).nuget\nuget.exe</NuGetPath>
+    <ArtifactsPath>$(RootPath)artifacts</ArtifactsPath>
+
+    <PackageVersion Condition=" '$(PackageVersion)' == '' ">0.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,4 +34,14 @@
   </Target>
 
   <Target Name="Test" DependsOnTargets="RestorePackages" />
+
+  <Target Name="Package" DependsOnTargets="Build; Test">
+    <ItemGroup>
+      <NuGetSpecs Include="$(RootPath)**\*.nuspec" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(ArtifactsPath)" Condition=" !Exists('$(ArtifactsPath)') " />
+
+    <Exec Command="$(NuGetPath) pack %(NuGetSpecs.Identity) -outputdirectory $(ArtifactsPath) -version $(PackageVersion) -symbols" />
+  </Target>
 </Project>
