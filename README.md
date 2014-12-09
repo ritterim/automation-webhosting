@@ -9,7 +9,7 @@ You will need IIS Express installed on your host machine. You can [download it h
 
 ## Quick Start
 
-You can install this package via [Nuget](http://nuget.org) under the package if of [RimDev.Automation.WebHosting](http://www.nuget.org/packages/RimDev.Automation.WebHosting/).
+You can install this package via [Nuget](http://nuget.org) under the package id of [RimDev.Automation.WebHosting](http://www.nuget.org/packages/RimDev.Automation.WebHosting/).
 
 ```
 PM> Install-Package RimDev.Automation.WebHosting
