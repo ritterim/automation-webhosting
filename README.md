@@ -3,6 +3,9 @@
 
 This library is designed to allow the hosting of web applications (or sites) via a programatic interface. It utilizes **[IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview)** to spin up dedicated instances of your applications with support for both **HTTP** and **HTTPS**. We mainly developed this utility to aid in **[integration testing](http://en.wikipedia.org/wiki/Integration_testing)** but it can certainly be used in other scenarios where web hosting is desired.
 
+![NuGet Version](https://img.shields.io/nuget/v/RimDev.Automation.WebHosting.svg)
+![NuGet Download Count](https://img.shields.io/nuget/dt/RimDev.Automation.WebHosting.svg)
+
 ## Prerequisites
 
 You will need IIS Express installed on your host machine. You can [download it here](http://www.iis.net/downloads) or use the Web Platform Installer.
